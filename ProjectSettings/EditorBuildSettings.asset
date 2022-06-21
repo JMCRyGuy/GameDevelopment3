@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/!Assessment1/LevelDesigned.unity
     guid: 0080cd3157c0b324cafe017fdb43e218
+  - enabled: 1
+    path: Assets/!Assessment2/Scenes/Menu.unity
+    guid: 95c0d3e652a53b245a5aea4a7687ad15
+  - enabled: 1
+    path: Assets/!Assessment2/Scenes/DialogueSystem.unity
+    guid: 2d0f13d9481dd754c9278408ea1a7f02
+  - enabled: 1
+    path: Assets/!Assessment2/Scenes/MathEducational.unity
+    guid: 0a245082ff74fd44eb59ad35a145e270
+  - enabled: 1
+    path: Assets/!Assessment2/Scenes/Piviot.unity
+    guid: 38a3802f6382b904097de2dd543cc4bb
   m_configObjects: {}

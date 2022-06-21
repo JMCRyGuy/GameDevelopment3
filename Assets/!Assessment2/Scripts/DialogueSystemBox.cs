@@ -15,6 +15,8 @@ public class DialogueSystemBox : MonoBehaviour
     public GameObject choiceBox;
     public GameObject[] choiceButtons;
 
+    public SceneManage sceneMangeRef;
+
 
 
 
@@ -67,6 +69,8 @@ public class DialogueSystemBox : MonoBehaviour
         isChoice = true;
         choiceBox.SetActive(true);
         // foreach (DialogueObject x in currentDialogue.choices)
+
+
         for (int i = 0; i < currentDialogue.choices.Length; i++)
         {
             
@@ -77,6 +81,14 @@ public class DialogueSystemBox : MonoBehaviour
 
 
         }
+        if (currentDialogue.choices.Length <= 0)
+        {
+            sceneMangeRef.TransitionScene(0);
+        }
+
+
+
+
     }
 
     public void ChoiceSelect(int x)

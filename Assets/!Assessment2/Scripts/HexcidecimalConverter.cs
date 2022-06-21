@@ -1,43 +1,74 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class HexcidecimalConverter : MonoBehaviour
 {
     public int input = 0;
-    public Dictionary<int, string> convertString = new Dictionary<int, string>() { { 0, "0" }, { 1, "1" }, { 2, "2" }, { 3, "3" }, { 4, "4" }, { 5, "5" }, { 6, "6" }, { 7, "7" }, { 8, "8" }, { 9, "9" }, { 10, "A" }, { 11, "B" }, { 12, "C" }, { 13, "D" }, { 14, "E" }, {15, "F"}};  
+    public Dictionary<int, string> convertString = new Dictionary<int, string>() { { 0, "0" }, { 1, "1" }, { 2, "2" }, { 3, "3" }, { 4, "4" }, { 5, "5" }, { 6, "6" }, { 7, "7" }, { 8, "8" }, { 9, "9" }, { 10, "A" }, { 11, "B" }, { 12, "C" }, { 13, "D" }, { 14, "E" }, {15, "F"}};
     
-    int x;
+    public Dictionary<int, string> setString = new Dictionary<int, string>();
+
+    public string finalString;
+    public TextMeshProUGUI text;
+
 
     private void Start()
     {
         
-        HexidecimalConvert(input,0);
+        
+    }
+
+    public void HexidecimalReset(int value, int digit)
+    {
+        input = value;
+        setString = new Dictionary<int, string>();
+        finalString = "";
+
+
+
+        HexidecimalConvert(value, digit);
     }
     
     
     public void HexidecimalConvert(int value, int digit)
     {
         
-        if (digit > 0)
+
+
+        int x = value / 16;
+        int y = value % 16;
+        /* print(x + ":" + y);
+        print(convertString);
+        print(digit);
+        print(convertString[y]); */
+
+
+        setString.Add(digit, convertString[y]);
+
+        if (x >= 1)
         {
-            x = value / 16;
+            HexidecimalConvert(x, digit + 1);
+
         }
         else
         {
-            x = value;
+            for (int i = 0; i < setString.Count; i++)
+            {
+                finalString = setString[i] + finalString;
+
+            }
+            text.text = finalString;
+            print(input);
         }
 
+
+        
  
     }
 
-    void CheckIfDone(int digit, int value)
-    {
-        if (digit > 0)
-        {
-            HexidecimalConvert(value % 16, digit - 1);
-        }
-    }
+
 }
 
 /* switch (Mathf.Abs(x))
