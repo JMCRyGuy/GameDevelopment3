@@ -44,9 +44,9 @@ public class SellingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InventoryUpdate();
+        
         SellerUpdate();
-
+        
 
 
 
@@ -260,7 +260,7 @@ public class SellingManager : MonoBehaviour
 
         }
 
-
+        InventoryUpdate();
 
 
 
